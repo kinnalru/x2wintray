@@ -530,6 +530,7 @@ void tray_create_window(int argc, char **argv)
 			tray_data.tray, 
 			CWBitGravity | CWWinGravity | CWBackingStore, 
 			&xswa);
+#ifndef WIN32
 	{
 		/* XXX: use XStoreName ?*/
 		int numtries = 0;
@@ -545,6 +546,7 @@ void tray_create_window(int argc, char **argv)
 	}
 	XSetWMName(tray_data.dpy, tray_data.tray, &wm_name);
 	XFree(wm_name.value);
+#endif
 	/* Setup class hints */
 	xch.res_class = PROGNAME;
 	xch.res_name = PROGNAME;

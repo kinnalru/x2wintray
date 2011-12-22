@@ -768,7 +768,7 @@ int tray_main(int argc, char **argv)
 			perform_periodic_tasks(PT_MASK_ALL & (~PT_MASK_SB));
 		}
 		perform_periodic_tasks(PT_MASK_ALL);
-		my_usleep(500000L);
+                my_usleep(500000L);
 	}
 bailout:
 	LOG_TRACE(("Clean exit\n"));
@@ -849,7 +849,7 @@ int main(int argc, char** argv)
 	read_settings(argc, argv);
 	/* Register cleanup and signal handlers */
 	atexit(cleanup);
-#if !defined WIN32
+#ifndef WIN32
 	signal(SIGUSR1, &request_tray_status_on_signal);
     #ifdef ENABLE_GRACEFUL_EXIT_HACK
 	signal(SIGINT, &exit_on_signal);
