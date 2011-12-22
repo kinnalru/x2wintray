@@ -1,0 +1,2 @@
+#!/bin/sh
+./configure --disable-graceful-exit --disable-native-kde --x-includes=3rdparty/XLib/include --x-libraries=3rdparty/XLib/lib

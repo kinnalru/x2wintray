@@ -2,7 +2,7 @@
 /* src/config.h.in.  Generated from configure.in by autoheader.  */
 
 /* enable debugging code */
-/* #undef DEBUG */
+#define DEBUG 1
 
 /* delay sending of embedding confirmation */
 /* #undef DELAY_EMBEDDING_CONFIRMATION */
@@ -11,7 +11,7 @@
 #define ENABLE_DUMP_WIN_INFO 1
 
 /* use non-portable hack to exit gracefuly on signal */
-#define ENABLE_GRACEFUL_EXIT_HACK 1
+/* #undef ENABLE_GRACEFUL_EXIT_HACK */
 
 /* System has usable backtrace implementation. */
 /* #undef HAVE_BACKTRACE */
