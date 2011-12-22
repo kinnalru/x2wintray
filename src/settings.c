@@ -13,13 +13,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
+#ifndef WIN32
 #include <libgen.h>
+#endif
 #include <string.h>
 #include <ctype.h>
 #include <limits.h>
 #include <assert.h>
 
 #include "config.h"
+
+#ifdef WIN32
+#include "winport.h"
+#endif
 
 #include "common.h"
 #include "settings.h"

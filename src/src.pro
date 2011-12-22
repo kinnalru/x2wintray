@@ -38,7 +38,8 @@ HEADERS += \
 	tray.h \
 	xembed.h \
 	xutils.h \
-	wmh.h
+        wmh.h \
+        winport.h
 	
 	
 SOURCES += \

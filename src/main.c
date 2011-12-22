@@ -12,13 +12,19 @@
 #include <X11/Xatom.h>
 #include <X11/X.h>
 
-#include <sys/time.h>
+
+#ifndef WIN32
+    #include <sys/time.h>
+    #include <unistd.h>
+    #include <sys/select.h>
+#endif
+
 #include <sys/types.h>
 #include <string.h>
 #include <signal.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/select.h>
+
+
 
 #include "config.h"
 
@@ -53,15 +59,19 @@ static int tray_status_requested = 0;
 static Display *async_dpy;
 #endif
 
+#ifdef WIN32
+    #define my_usleep usleep
+#elif
 void my_usleep(useconds_t usec)
 {
-	struct timeval timeout;
-	fd_set rfds;
-	FD_ZERO(&rfds);
-	timeout.tv_sec = 0;
-	timeout.tv_usec = usec;
-	select(1, &rfds, NULL, NULL, &timeout);
+        struct timeval timeout;
+        fd_set rfds;
+        FD_ZERO(&rfds);
+        timeout.tv_sec = 0;
+        timeout.tv_usec = usec;
+        select(1, &rfds, NULL, NULL, &timeout);
 }
+#endif
 
 /****************************
  * Signal handlers, cleanup
@@ -839,11 +849,13 @@ int main(int argc, char** argv)
 	read_settings(argc, argv);
 	/* Register cleanup and signal handlers */
 	atexit(cleanup);
+#if !defined WIN32
 	signal(SIGUSR1, &request_tray_status_on_signal);
-#ifdef ENABLE_GRACEFUL_EXIT_HACK
+    #ifdef ENABLE_GRACEFUL_EXIT_HACK
 	signal(SIGINT, &exit_on_signal);
 	signal(SIGTERM, &exit_on_signal);
 	signal(SIGPIPE, &exit_on_signal);
+    #endif
 #endif
 	/* Open display */
 	if ((tray_data.dpy = XOpenDisplay(settings.display_str)) == NULL) 

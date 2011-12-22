@@ -20,6 +20,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef WIN32
+#include "winport.h"
+#endif
+
 int debug_output_disabled = 0;
 
 /* Disables all output from debugging macros */

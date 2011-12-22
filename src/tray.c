@@ -17,7 +17,9 @@
 #include <X11/xpm.h>
 #endif
 
+#ifndef WIN32
 #include <unistd.h>
+#endif
 
 #include "common.h"
 #include "tray.h"

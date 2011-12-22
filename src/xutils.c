@@ -14,7 +14,13 @@
 #include <X11/Xatom.h>
 
 #include <limits.h>
+#ifndef WIN32
 #include <unistd.h>
+#endif
+
+#ifdef WIN32
+#include "winport.h"
+#endif
 
 #include "xutils.h"
 

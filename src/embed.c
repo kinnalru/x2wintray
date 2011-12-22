@@ -11,7 +11,9 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
+#ifdef Q_WS_WIN
 #include <unistd.h>
+#endif
 #include <assert.h>
 
 #ifdef DELAY_EMBEDDING_CONFIRMATION
