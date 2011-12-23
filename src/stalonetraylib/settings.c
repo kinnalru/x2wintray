@@ -785,7 +785,7 @@ void interpret_settings()
 		NorthWestGravity
 	};
 	int geom_flags; 
-	int rc;
+//	int rc;
 	int dummy;
 	XWindowAttributes root_wa;
 	/* Sanitize icon size */

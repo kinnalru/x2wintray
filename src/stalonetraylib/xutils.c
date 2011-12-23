@@ -308,7 +308,7 @@ Window x11_find_subwindow_by_name(Display *dpy, Window tgt, char *name)
 {
 	char *tgt_name = NULL;
 	Window ret = None, *children, dummy;
-	int i;
+        unsigned int i;
 	unsigned int nchildren;
 	if (XFetchName(dpy, tgt, &tgt_name)) {
 		LOG_TRACE(("tgt_name=\"%s\", name=\"%s\"\n", tgt_name, name));

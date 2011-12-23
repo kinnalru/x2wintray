@@ -87,7 +87,7 @@ void kde_tray_init(Display *dpy)
 
 int kde_tray_update_old_icons(Display *dpy)
 {
-	int i, rc;
+        unsigned int i, rc;
 	XWindowAttributes xwa;
 	/* Remove dead entries from old kde icons list.
 	 * We use XGetWindowAttributes to see if the
@@ -102,7 +102,7 @@ int kde_tray_update_old_icons(Display *dpy)
 
 int kde_tray_is_old_icon(Window w)
 {
-	int i;
+        unsigned int i;
 	for (i = 0; i < n_old_kde_icons; i++)
 		if (old_kde_icons[i] == w)
 			return True;
@@ -111,7 +111,7 @@ int kde_tray_is_old_icon(Window w)
 
 void kde_tray_old_icons_remove(Window w)
 {
-	int i;
+        unsigned int i;
 	for (i = 0; i < n_old_kde_icons; i++)
 		if (old_kde_icons[i] == w) {
 			LOG_TRACE(("0x%x unmarked as an old kde icon\n", w));
@@ -146,7 +146,7 @@ Window kde_tray_find_icon(Display *dpy, Window w)
 {
 	Window root, parent, *children = NULL;
 	unsigned int nchildren;
-	int i;
+        unsigned int i;
 	Window r = None;
 	if (kde_tray_check_for_icon(dpy, w)) return w;
 	XQueryTree(dpy, w, &root, &parent, &children, &nchildren);

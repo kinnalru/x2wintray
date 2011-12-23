@@ -483,7 +483,7 @@ int tray_update_window_props()
 
 void tray_create_window(int argc, char **argv)
 {
-	XTextProperty wm_name;
+//	XTextProperty wm_name;
 	XSetWindowAttributes xswa;
 	XClassHint xch;
 	XWMHints xwmh;

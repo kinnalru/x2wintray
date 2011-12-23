@@ -67,7 +67,7 @@ CARD8 *image_create_alpha_mask(int ord, int w, int h)
 
 	bord = (1 << ord) - 1;
 
-	m = malloc(w * h);
+        m = malloc(w * h);
 	if (m == NULL) return NULL;
 	memset(m, 255, w * h);
 

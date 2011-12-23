@@ -5,8 +5,5 @@
 #-------------------------------------------------
 
 TEMPLATE = subdirs
-
-CONFIG   += console
-
 SUBDIRS += src
 

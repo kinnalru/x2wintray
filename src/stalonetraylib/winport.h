@@ -14,5 +14,9 @@
 
     typedef int pid_t;
 
+    void winport_usleep(int usec);
+
+    int winport_main(int argc, char** argv);
+
 #endif
 

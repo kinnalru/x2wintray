@@ -208,7 +208,7 @@ int ewmh_dump_window_states(Display *dpy, Window wnd)
 {
 	Atom prop, *data;
 	unsigned long prop_len;
-	int j;
+        unsigned int j;
 	char *tmp;
 	/* Check if WM supports _NET_WM_STATE */
 	prop = XInternAtom(tray_data.dpy, "_NET_WM_STATE", True);

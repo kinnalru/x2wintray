@@ -32,7 +32,7 @@ struct TrayIcon *icon_list_new(Window wid, int cmode)
 	/* Do not allocate second structure for the same window */
 	if (icon_list_find(wid) != NULL)
 		return NULL;
-	if ((new_icon = malloc(sizeof(struct TrayIcon))) == NULL) {
+        if ((new_icon = malloc(sizeof(struct TrayIcon))) == NULL) {
 		LOG_ERR_OOM(("Could not allocate memory for new icon\n"));
 		return NULL;
 	}

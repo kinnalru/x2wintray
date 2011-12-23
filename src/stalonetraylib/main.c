@@ -53,6 +53,11 @@
 #include "scrollbars.h"
 #include "tray.h"
 
+#include "main.h"
+#include "winport.h"
+
+
+
 struct TrayData tray_data;
 static int tray_status_requested = 0;
 #ifdef ENABLE_GRACEFUL_EXIT_HACK
@@ -60,7 +65,7 @@ static Display *async_dpy;
 #endif
 
 #ifdef WIN32
-    #define my_usleep usleep
+    #define my_usleep winport_usleep
 #elif
 void my_usleep(useconds_t usec)
 {
@@ -79,6 +84,11 @@ void my_usleep(useconds_t usec)
 void request_tray_status_on_signal(int sig)
 {
 	tray_status_requested = 1;
+}
+
+int ret()
+{
+    return 5;
 }
 
 #ifdef ENABLE_GRACEFUL_EXIT_HACK
@@ -209,7 +219,7 @@ ok:
 void remove_icon(Window w)
 {
 	struct TrayIcon *ti;
-	char *name;
+//	char *name;
 	/* Ignore false alarms */
 	if ((ti = icon_list_find(w)) == NULL) return;
 	dump_tray_status();
@@ -842,13 +852,14 @@ int remote_main(int argc, char **argv)
 }
 
 /* main() */
-int main(int argc, char** argv)
+
+int do_main(int argc, char** argv)
 {
 	/* Read settings */
 	tray_init();
 	read_settings(argc, argv);
 	/* Register cleanup and signal handlers */
-	atexit(cleanup);
+//	atexit(cleanup);
 #ifndef WIN32
 	signal(SIGUSR1, &request_tray_status_on_signal);
     #ifdef ENABLE_GRACEFUL_EXIT_HACK
