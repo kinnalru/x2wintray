@@ -1,3 +1,12 @@
+			x2wintray
+
+This project has aimed to make gateway between "X11 sever system tray" and "MS Windows system tray area".
+Main task is to embed systray icons from X11 server to Windows systray area and post events from Windows tray to X11 tray system.
+See more: https://github.com/kinnalru/x2wintray/wiki
+
+It is completly base on STAnd-aLONE system TRAYtray project: http://stalonetray.sourceforge.net/
+
+
 			STAnd aLONE TRAY
 
 
