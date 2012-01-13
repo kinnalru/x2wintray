@@ -8,12 +8,7 @@
 
 #include <QApplication>
 
-extern int do_main(int argc, char** argv);
-
-#include "main.h"
 #include "winport.h"
-
-
 
 int main(int argc, char** argv)
 {

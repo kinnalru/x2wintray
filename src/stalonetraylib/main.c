@@ -12,12 +12,13 @@
 #include <X11/Xatom.h>
 #include <X11/X.h>
 
-
 #ifndef WIN32
     #include <sys/time.h>
     #include <unistd.h>
     #include <sys/select.h>
 #endif
+
+#include <time.h>
 
 #include <sys/types.h>
 #include <string.h>

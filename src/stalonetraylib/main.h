@@ -4,6 +4,5 @@
 
 int do_main(int argc, char** argv);
 
-int ret();
 
 #endif

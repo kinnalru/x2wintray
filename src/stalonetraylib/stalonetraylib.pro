@@ -9,9 +9,10 @@ TEMPLATE = lib
 TARGET = stalonetraylib
 
 CONFIG   += static
-
 X11_LOCAL="e:/jerry/devel/x2wintray/3rdparty/XLib/"
 MINGW_LOCAL="e:/jerry/devel/x2wintray/3rdparty/MinGW/"
+
+DEFINES += BUILD_MY_LIB
 
 INCLUDEPATH += $$X11_LOCAL/include
 
@@ -55,5 +56,4 @@ SOURCES += \
         xembed.c \
         xutils.c \
         main.c \
-        winport.cpp
-
+        winport.c
