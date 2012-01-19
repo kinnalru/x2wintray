@@ -1,6 +1,6 @@
 
 #include <windows.h>
-#include <winport.h>
+#include "winport.h"
 
 
 extern int do_main(int argc, char** argv);

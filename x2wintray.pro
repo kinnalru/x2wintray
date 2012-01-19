@@ -7,3 +7,6 @@
 TEMPLATE = subdirs
 SUBDIRS += src
 
+SRCDIR=$$PWD
+BUILDDIR=./
+include(config.pro)

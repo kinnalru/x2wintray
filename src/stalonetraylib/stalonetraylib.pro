@@ -4,17 +4,15 @@
 #
 #-------------------------------------------------
 
+SRCDIR="$${PWD}/../../"
+BUILDDIR=../../
+include(../../config.pro)
+
 TEMPLATE = lib
 
 TARGET = stalonetraylib
 
-CONFIG   += static
-X11_LOCAL="e:/jerry/devel/x2wintray/3rdparty/XLib/"
-MINGW_LOCAL="e:/jerry/devel/x2wintray/3rdparty/MinGW/"
-
-DEFINES += BUILD_MY_LIB
-
-INCLUDEPATH += $$X11_LOCAL/include
+CONFIG += static
 
 LIBS += $$X11_LOCAL/lib/libX11.a \
         $$X11_LOCAL/lib/libXau.a \
@@ -40,7 +38,6 @@ HEADERS += \
         wmh.h \
 	winport.h\
         main.h
-	
 	
 SOURCES += \
         debug.c \
