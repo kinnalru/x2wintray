@@ -4,6 +4,10 @@
 #
 #-------------------------------------------------
 
+SRCDIR="$${PWD}/../"
+BUILDDIR=../
+include(../config.pro)
+
 TEMPLATE = app
 
 TARGET = x2wintray
@@ -17,10 +21,7 @@ MINGW_LOCAL="e:/jerry/devel/x2wintray/3rdparty/MinGW/"
 
 INCLUDEPATH += $$X11_LOCAL/include ../stalonetraylib
 
-QMAKE_LFLAGS += ../stalonetraylib/debug/stalonetraylib.lib
-
-LIBS += -L../stalonetraylib/debug/ \
-        -lstalonetraylib \
+LIBS += $$DESTDIR/stalonetraylib.lib
 
 
 SOURCES += \
